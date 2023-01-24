@@ -2,13 +2,15 @@ package Drivers.transport.driver;
 
 import Drivers.transport.driver.Exceptions.DiagnosticException;
 
+import java.util.LinkedList;
+
 public abstract class Driver{
     private final String fullName;
     private boolean havingRights; //реализуем это поле.
     private int yearsOfDriving;
     protected String typeOfDriver;
     public Driver(String fullName, int yearsOfDriving, String typeOfDriver) throws DiagnosticException {
-        if (yearsOfDriving <= 0 || typeOfDriver.isEmpty() || typeOfDriver.isBlank() || typeOfDriver == null && !typeOfDriver.equals("B") || !typeOfDriver.equals("C")|| !typeOfDriver.equals("D")) {
+        if (yearsOfDriving <= 0 || typeOfDriver.isEmpty() || typeOfDriver.isBlank() || typeOfDriver == null && (!typeOfDriver.equals("B") || !typeOfDriver.equals("C"))) {
             havingRights = false;
             throw new DiagnosticException("Укажите тип прав!");
         } else {

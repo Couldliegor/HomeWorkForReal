@@ -7,6 +7,11 @@ import Drivers.transport.Truck;
 import Drivers.transport.driver.DriverTypeC;
 import Drivers.transport.driver.DriverTypeD;
 import Drivers.transport.driver.Exceptions.DiagnosticException;
+import Drivers.transport.MechanicTeam;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 import static java.sql.DriverManager.getDriver;
 
@@ -14,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         DriverTypeB maxim = null;
         try {
-            maxim = new DriverTypeB("maxim", 3, "");
+            maxim = new DriverTypeB("maxim", 3, "B");
             DriverTypeB alex = new DriverTypeB("Alex", 4, "B");
             DriverTypeB george = new DriverTypeB("George", 6, "B");
             DriverTypeB ivan = new DriverTypeB("Ivan", 15, "B");
@@ -40,16 +45,43 @@ public class Main {
             Bus greenBus = new Bus("Volvo", "DT 356", 4.5, egor);
             Bus yellowBus = new Bus("Skoda", "445d3", 5.6, kirill);
             Bus criminalBus = new Bus("Volvo", "9990", 7.0, afanasy);
+            //
+            ArrayDeque<Transport> transportsList = new ArrayDeque<Transport>();
+            //
+            transportsList.offer(ferrari);
+            transportsList.offer(lamborgini);
+            transportsList.offer(bmw);
+            transportsList.offer(audi);
+            transportsList.offer(kamaz);
+            transportsList.offer(ural);
+            transportsList.offer(gazelle);
+            transportsList.offer(volvo);
+            transportsList.offer(blueBus);
+            transportsList.offer(greenBus);
+            transportsList.offer(yellowBus);
+            transportsList.offer(criminalBus);
+            //getting list of racing transports
+            //как некий метод по сути своей.
+            //
+            MechanicTeam pasha = new MechanicTeam("Павел Леонтьев", "Ferrari");
+            MechanicTeam aleks = new MechanicTeam("Aleksandr Shum", "Lamboorgini");
+            MechanicTeam max = new MechanicTeam("Maksimov Shum", "Lamb2orgini");
 
 
-            printInfo(blueBus);
-            printInfo(lamborgini);
-            printInfo(kamaz);
+
+            System.out.println(blueBus.getDriverName());
+            greenBus.addMechanicForCar(max);
+            greenBus.addMechanicForCar(aleks);
+//            greenBus.addMechanicForCar(pasha);
+
+
+//            printInfo(blueBus);
+//            printInfo(lamborgini);
+//            printInfo(kamaz);
         } catch (DiagnosticException e) {
             throw new RuntimeException(e);
         }
     }
-
     private static void printInfo(Transport<?> transport) { // разные водители
         System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel()
                 + " и будет участвовать в заезде");
