@@ -9,9 +9,7 @@ import Drivers.transport.driver.DriverTypeD;
 import Drivers.transport.driver.Exceptions.DiagnosticException;
 import Drivers.transport.MechanicTeam;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
 import static java.sql.DriverManager.getDriver;
 
@@ -62,16 +60,31 @@ public class Main {
             transportsList.offer(criminalBus);
             //getting list of racing transports
             //как некий метод по сути своей.
-            //
             MechanicTeam pasha = new MechanicTeam("Павел Леонтьев", "Ferrari");
             MechanicTeam aleks = new MechanicTeam("Aleksandr Shum", "Lamboorgini");
             MechanicTeam max = new MechanicTeam("Maksimov Shum", "Lamb2orgini");
 
+            Set<String> listOfDrivers = new HashSet<>();
+            listOfDrivers.add(denis.toString());
+            listOfDrivers.add(afanasy.toString());
+            listOfDrivers.add(maxim.toString());
+            listOfDrivers.add(egor.toString());
+            listOfDrivers.add(kirill.toString());
+            listOfDrivers.add(alex.toString());
+            listOfDrivers.add(pavel.toString());
+            listOfDrivers.add(sveta.toString());
+            listOfDrivers.add(ivan.toString());
+            listOfDrivers.add(denis.toString());
+            listOfDrivers.add(denis.toString());
+            listOfDrivers.add(denis.toString());
 
+            for (String ofDriver : listOfDrivers) {
+                System.out.println(ofDriver);
+            }
 
-            System.out.println(blueBus.getDriverName());
-            greenBus.addMechanicForCar(max);
-            greenBus.addMechanicForCar(aleks);
+//            System.out.println(blueBus.getDriverName());
+//            greenBus.addMechanicForCar(max);
+//            greenBus.addMechanicForCar(aleks);
 //            greenBus.addMechanicForCar(pasha);
 
 
@@ -86,4 +99,5 @@ public class Main {
         System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel()
                 + " и будет участвовать в заезде");
     }
+
 }
