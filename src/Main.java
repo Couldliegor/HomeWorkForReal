@@ -39,6 +39,7 @@ public class Main {
             DriverTypeD egor = new DriverTypeD("Egor", 9);
             DriverTypeD kirill = new DriverTypeD("Kirill", 15);
             DriverTypeD afanasy = new DriverTypeD("Afanasy", 20);
+            DriverTypeD deniCopy = new DriverTypeD("Denis", 10);
             Bus blueBus = new Bus("Mercedec", "C56", 6, denis);
             Bus greenBus = new Bus("Volvo", "DT 356", 4.5, egor);
             Bus yellowBus = new Bus("Skoda", "445d3", 5.6, kirill);
@@ -64,22 +65,23 @@ public class Main {
             MechanicTeam aleks = new MechanicTeam("Aleksandr Shum", "Lamboorgini");
             MechanicTeam max = new MechanicTeam("Maksimov Shum", "Lamb2orgini");
 
-            Set<String> listOfDrivers = new HashSet<>();
-            listOfDrivers.add(denis.toString());
-            listOfDrivers.add(afanasy.toString());
-            listOfDrivers.add(maxim.toString());
-            listOfDrivers.add(egor.toString());
-            listOfDrivers.add(kirill.toString());
-            listOfDrivers.add(alex.toString());
-            listOfDrivers.add(pavel.toString());
-            listOfDrivers.add(sveta.toString());
-            listOfDrivers.add(ivan.toString());
-            listOfDrivers.add(denis.toString());
-            listOfDrivers.add(denis.toString());
-            listOfDrivers.add(denis.toString());
+            Set<Driver> listOfDrivers = new HashSet<>();
+            listOfDrivers.add(denis);
+            listOfDrivers.add(afanasy);
+            listOfDrivers.add(maxim);
+            listOfDrivers.add(egor);
+            listOfDrivers.add(kirill);
+            listOfDrivers.add(alex);
+            listOfDrivers.add(pavel);
+            listOfDrivers.add(sveta);
+            listOfDrivers.add(ivan);
+            listOfDrivers.add(denis); // изначально показывался такой метод, когда повторы не выводятся в консоль
+            listOfDrivers.add(deniCopy);//оп, но этого не было в задании
 
-            for (String ofDriver : listOfDrivers) {
-                System.out.println(ofDriver);
+
+
+            for (Object ofDriver : listOfDrivers) {
+                System.out.println(ofDriver.toString());
             }
 
 //            System.out.println(blueBus.getDriverName());

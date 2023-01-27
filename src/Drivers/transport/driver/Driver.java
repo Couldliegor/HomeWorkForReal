@@ -3,8 +3,18 @@ package Drivers.transport.driver;
 import Drivers.transport.driver.Exceptions.DiagnosticException;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public abstract class Driver{
+    @Override
+    public String toString() {
+        return "Driver" +
+                "fullName " + fullName + '\'' +
+                ", havingRights" + havingRights +
+                ", yearsOfDriving " + yearsOfDriving +
+                ", typeOfDriver " + typeOfDriver + '\'';
+    }
+
     private final String fullName;
     private boolean havingRights; //реализуем это поле.
     private int yearsOfDriving;
@@ -59,5 +69,18 @@ public abstract class Driver{
 
     public void setTypeOfDriver(String typeOfDriver) {
         this.typeOfDriver = typeOfDriver;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return havingRights == driver.havingRights && yearsOfDriving == driver.yearsOfDriving && Objects.equals(fullName, driver.fullName) && Objects.equals(typeOfDriver, driver.typeOfDriver);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, havingRights, yearsOfDriving, typeOfDriver);
     }
 }
