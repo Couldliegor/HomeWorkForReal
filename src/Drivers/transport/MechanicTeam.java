@@ -8,6 +8,18 @@ public class MechanicTeam<T extends Transport> {
 
     private final String NAME_AND_SURNAME;
     private String company;
+
+    @Override
+    public String toString() {
+        return "MechanicTeam{" +
+                "NAME_AND_SURNAME='" + NAME_AND_SURNAME + '\'' +
+                '}';
+    }
+
+    public MechanicTeam(String NAME_AND_SURNAME) {
+        this.NAME_AND_SURNAME = NAME_AND_SURNAME;
+    }
+
     public MechanicTeam(String NAME_AND_SURNAME, String company) {
         this.NAME_AND_SURNAME = NAME_AND_SURNAME;
         this.company = company;

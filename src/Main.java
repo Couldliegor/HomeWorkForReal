@@ -61,9 +61,22 @@ public class Main {
             transportsList.offer(criminalBus);
             //getting list of racing transports
             //как некий метод по сути своей.
-            MechanicTeam pasha = new MechanicTeam("Павел Леонтьев", "Ferrari");
-            MechanicTeam aleks = new MechanicTeam("Aleksandr Shum", "Lamboorgini");
-            MechanicTeam max = new MechanicTeam("Maksimov Shum", "Lamb2orgini");
+
+            MechanicTeam pasha = new MechanicTeam("Павел Леонтьев");
+            MechanicTeam aleks = new MechanicTeam("Aleksandr Shum");
+            MechanicTeam max = new MechanicTeam("Maksimov Shum");
+            MechanicTeam max2 = new MechanicTeam("Maksimov Shum");
+
+            Map<Transport, MechanicTeam> hashMap = new HashMap<>(); // готово
+            hashMap.put(ferrari, pasha);
+            hashMap.put(ferrari, aleks);
+            hashMap.put(lamborgini, aleks);
+            hashMap.put(bmw, max2);
+            hashMap.put(bmw, max);
+            for (Map.Entry<Transport, MechanicTeam> entry : hashMap.entrySet()) {
+                System.out.println("Машина " + entry.getKey() + " Механик " + entry.getValue());
+            }
+
 
             Set<Driver> listOfDrivers = new HashSet<>();
             listOfDrivers.add(denis);
@@ -77,7 +90,6 @@ public class Main {
             listOfDrivers.add(ivan);
             listOfDrivers.add(denis); // изначально показывался такой метод, когда повторы не выводятся в консоль
             listOfDrivers.add(deniCopy);//оп, но этого не было в задании
-
 
 
             for (Object ofDriver : listOfDrivers) {
@@ -97,6 +109,7 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
     private static void printInfo(Transport<?> transport) { // разные водители
         System.out.println("Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel()
                 + " и будет участвовать в заезде");
