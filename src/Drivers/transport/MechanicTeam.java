@@ -1,27 +1,24 @@
 package Drivers.transport;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 public class MechanicTeam<T extends Transport> {
     //один механик может работать с несколькими машинами.
 
-    private final String NAME_AND_SURNAME;
+    private final String nameSurname;
     private String company;
 
     @Override
     public String toString() {
         return "MechanicTeam{" +
-                "NAME_AND_SURNAME='" + NAME_AND_SURNAME + '\'' +
-                '}';
+               "NAME_AND_SURNAME='" + nameSurname + '\'' +
+               '}';
     }
 
-    public MechanicTeam(String NAME_AND_SURNAME) {
-        this.NAME_AND_SURNAME = NAME_AND_SURNAME;
+    public MechanicTeam(String nameSurname) {
+        this.nameSurname = nameSurname;
     }
 
-    public MechanicTeam(String NAME_AND_SURNAME, String company) {
-        this.NAME_AND_SURNAME = NAME_AND_SURNAME;
+    public MechanicTeam(String nameSurname, String company) {
+        this.nameSurname = nameSurname;
         this.company = company;
 
     }
@@ -34,7 +31,7 @@ public class MechanicTeam<T extends Transport> {
         System.out.println("Transport has been fixed successfully!");
     }
 
-    public String getNAME_AND_SURNAME() {
-        return NAME_AND_SURNAME;
+    public String getNameSurname() {
+        return nameSurname;
     }
 }

@@ -2,9 +2,9 @@ package Drivers.transport;
 
 import Drivers.transport.driver.Driver;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public abstract class Transport <T extends Driver> implements Racing {
@@ -86,8 +86,21 @@ public abstract class Transport <T extends Driver> implements Racing {
             System.out.println("Вы можете добавить до двух механиков.");
         } else {
             listOfMechanics.add(thisObj);
-            System.out.println("Механик " + thisObj.getNAME_AND_SURNAME() + " был добавлен в команду." );
+            System.out.println("Механик " + thisObj.getNameSurname() + " был добавлен в команду." );
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver) && Objects.equals(listOfMechanics, transport.listOfMechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, driver, listOfMechanics);
     }
 }
 

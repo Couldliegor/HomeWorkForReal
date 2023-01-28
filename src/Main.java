@@ -68,8 +68,11 @@ public class Main {
             MechanicTeam max2 = new MechanicTeam("Maksimov Shum");
 
             Map<Transport, MechanicTeam> hashMap = new HashMap<>(); // готово
+            Transport ferrari2 = new LightCar("Ferrari", "Spider", 3.0, alex);
+            Transport ferrari3 = new LightCar("Ferrari", "Spider", 3.0, alex);
             hashMap.put(ferrari, pasha);
-            hashMap.put(ferrari, aleks);
+            hashMap.put(ferrari2, aleks);
+            hashMap.put(ferrari3, aleks);
             hashMap.put(lamborgini, aleks);
             hashMap.put(bmw, max2);
             hashMap.put(bmw, max);
